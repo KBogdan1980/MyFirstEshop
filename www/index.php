@@ -1,7 +1,7 @@
 <?php
 
 include_once '../config/config.php'; // ініціалізація налаштувань
-include_once '../library/mainFunctions.php';
+include_once '../library/mainFunctions.php'; // основні функції
 
 //визначаємо з яким параметром будемо працювати
 $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Index';
@@ -10,7 +10,7 @@ $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'I
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 
-loadPage($controllerName, $actionName);
+loadPage($smarty, $controllerName, $actionName);
 
 
 
