@@ -30,3 +30,18 @@ function loadTemplate($smarty, $templateName)
     {
     $smarty->display($templateName . TemplatePostfix);
 }
+
+/**
+ * Функція відладки. Зупиняє роботу програми, виводячи значення $value
+ * 
+ * @param variant $value  змінна для виводу її на сторінку
+ */
+
+function d($value = null, $die = 1){
+    echo 'Debug: <br><pre>';
+    print_r($value);
+    echo '</pre>';
+    
+    if ($die) die;
+    
+}

@@ -15,6 +15,7 @@ function testAction (){
  */
 
 function indexAction($smarty){
+        
     $smarty->assign('pageTitle', 'Головна сторінка сайта');
     
     loadTemplate($smarty, 'index');
