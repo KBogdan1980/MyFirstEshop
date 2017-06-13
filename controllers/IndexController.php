@@ -4,6 +4,10 @@
  * Контроллер головної сторінки
  * 
  */
+
+//підключаємо моделі
+include_once '../models/CategoriesModel.php';
+
 function testAction (){
     echo 'IndexController.php > testAction';
 } 
@@ -13,9 +17,10 @@ function testAction (){
  * 
  * @param obhject $smarty шаблонізатор
  */
-
 function indexAction($smarty){
-        
+
+    $rsCategories = getAllMainCatsWithChildren();
+    
     $smarty->assign('pageTitle', 'Головна сторінка сайта');
     
     loadTemplate($smarty, 'header');
