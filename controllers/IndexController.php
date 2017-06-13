@@ -22,6 +22,7 @@ function indexAction($smarty){
     $rsCategories = getAllMainCatsWithChildren();
     
     $smarty->assign('pageTitle', 'Головна сторінка сайта');
+    $smarty->assign('rsCategories', $rsCategories);
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');

@@ -1,6 +1,7 @@
 <?php
 
 include_once '../config/config.php'; // ініціалізація налаштувань
+include_once '../config/db.php';  //Ініціалізація бази данних
 include_once '../library/mainFunctions.php'; // основні функції
 
 //визначаємо з яким параметром будемо працювати
