@@ -12,6 +12,7 @@ $dbpasswd = "";
 
 // з'єднуємось з БД
 $db = mysql_connect($dblocation, $dbuser, $dbpasswd);
+mysql_set_charset('utf8');
 
 if (! $db) {
     echo 'Помилка доступу до MySQL';

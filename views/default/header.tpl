@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>{$pageTitle}</title>
+        <meta charset=utf-8>
         <link rel="stylesheet" href="{$templateWebPath}css/main.css" type="text/css"/>
     </head>
     <body>
