@@ -14,4 +14,3 @@
         
            {*centerColumn*}
         <div id="centerColumn">
-            centerColumn
