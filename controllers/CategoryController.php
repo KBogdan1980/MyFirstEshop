@@ -20,8 +20,7 @@ include_once '../models/ProductsModel.php';
 function indexAction($smarty){
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
     if ($catId == null) exit ();
-    echo "Category test _ {$catId}";
-    
+        
     $rsProducts = null;
     $rsChildCats = null;    
     $rsCategory = getCatById($catId);
