@@ -7,7 +7,7 @@
  */
 
 //підключаємо моделі
-include_once '../models/ProductModel.php';
+include_once '../models/ProductsModel.php';
 include_once '../models/CategoriesModel.php';
 
 /**

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-15 17:33:04
+<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-21 15:26:34
          compiled from "..\views\default\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15555593807df5ae7a1-00318016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '78aa7c798a9157cb75a704e697145fd18ab21a6d' => 
     array (
       0 => '..\\views\\default\\index.tpl',
-      1 => 1497540781,
+      1 => 1498051592,
       2 => 'file',
     ),
   ),
@@ -34,12 +34,12 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['products']['iteration']++;
 ?>
     <div style="float: left; padding: 0px 30px 40px 0px;">
-        <a href="/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+        <a href="/product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 /">
             <img src="/images/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
 " width="100">
         </a><br>
-        <a href="/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+        <a href="/product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 /"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a>
     </div>

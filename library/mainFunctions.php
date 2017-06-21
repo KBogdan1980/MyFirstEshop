@@ -18,7 +18,7 @@ function loadPage($smarty, $controllerName, $actionName = 'index'){
     
     $function = $actionName . 'Action';
     $function($smarty);
-}
+    }
 
 /**
  * Завантаження шаблона

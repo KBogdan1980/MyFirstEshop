@@ -7,7 +7,6 @@
 
 //підключаємо моделі
 include_once '../models/CategoriesModel.php';
-
 include_once '../models/ProductsModel.php';
 
 function testAction (){
