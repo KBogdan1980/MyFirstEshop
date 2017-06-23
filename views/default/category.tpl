@@ -1,7 +1,7 @@
 {*сторінка категорії*}
 <h1>Товари категорії {$rsCategory['name']}</h1>
 
-    {foreach $rsProducts as $item name = products}
+    {foreach $rsProducts as $item name=products}
         <div style="float: left; padding: 0px 30px 40px 0px;">
             <a href="/product/{$item['id']}/">
                 <img src="/images/products/{$item['image']}" width="100">
@@ -13,6 +13,6 @@
         {/if}   
     {/foreach}
     
-    {foreach $rsChildCats as $item name = childCats}
+    {foreach $rsChildCats as $item name=childCats}
         <h2><a href="/category/{$item['id']}/">{$item['name']}</a></h2>
     {/foreach}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-16 15:32:46
+<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-22 14:51:57
          compiled from "..\views\default\category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:59265943ddfe4f9217-32409863%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '68da599f107daa9148f75e5c93a60782405efa0c' => 
     array (
       0 => '..\\views\\default\\category.tpl',
-      1 => 1497619964,
+      1 => 1498135907,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.22-dev',
+  'unifunc' => 'content_5943ddfe64a191_97438684',
   'variables' => 
   array (
     'rsCategory' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'rsChildCats' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.22-dev',
-  'unifunc' => 'content_5943ddfe64a191_97438684',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5943ddfe64a191_97438684')) {function content_5943ddfe64a191_97438684($_smarty_tpl) {?>
 <h1>Товари категорії <?php echo $_smarty_tpl->tpl_vars['rsCategory']->value['name'];?>
