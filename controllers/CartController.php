@@ -35,3 +35,25 @@ function addtocartAction(){
   
         echo json_encode($resData);     
     }
+    
+    /**
+     * Видалення товару з кошика
+     * 
+     * @param integer id GET параметр - ID товару, що видаляється з кошика
+     * @return json інформація про операцію (успішно, кількість елементів в кошику)
+     */
+    function removefromcartAction(){
+        $itemId = isset($_GET['id']) ? intval($_GET['id']) : null;
+        if (! $itemId) exit();
+        
+        $resData = array();
+        $key = array_search($itemId, $_SESSION['cart']);
+        if ($key !== false){
+            unset($_SESSION['cart'][$key]);
+            $resData['success'] = 1;
+            $resData['cntItems'] = count($_SESSION['cart']);
+        } else {
+            $resData['success'] = 0;
+        }
+        echo json_encode($resData);
+    }
