@@ -5,19 +5,19 @@
   * @return якщо успішно, то обновляються данні кошика на сторінці
   */
  
- function addToCart(){
+ function addToCart(itemId){
      console.log("js - addToCart()");
      $.ajax({
          type: 'POST',
-         async: false,
+         async: true,
          url: "/cart/addtocart/" + itemId + '/',
          dataType: 'json',
          success: function(data){
              if (data['success']) {
                  $('#cartCntItems').html(data['cntItems']);
                  
-                 $('#addCart_'+ itemId).hide();
-                 $('#removeCart_'+ itemId).show();
+                 $('#addCart_' + itemId).hide();
+                 $('#removeCart_' + itemId).show();
              }
          }
      });
