@@ -22,8 +22,14 @@ function indexAction($smarty){
     //отримати дані продукта
     $rsProduct = getProductById($itemId);
     
-    //отримати всікатегорії
+    //отримати всі категорії
     $rsCategories = getAllMainCatsWithChildren();
+    
+    $smarty->assign('itemInCart', 0);
+    if(in_array($itemId, $_SESSION['cart'])){
+        $smarty->assign('itemInCart', 1);
+    }
+    
     
     $smarty->assign('pageTitle', '');
     $smarty->assign('rsCategories', $rsCategories);

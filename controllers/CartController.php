@@ -32,7 +32,6 @@ function addtocartAction(){
         } else {
             $resData['success'] = 0;
         }
-  
         echo json_encode($resData);     
     }
     
