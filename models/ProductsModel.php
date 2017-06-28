@@ -46,3 +46,17 @@ function getProductById($itemId){
     $rs = mysql_query($sql);
     return mysql_fetch_assoc($rs);
 }
+/**
+ * отримати список продуктів з масива ідентифікаторів (ID's)
+ * 
+ * @param type $itemIds масив ідентифікаторів продуктів
+ * @return array масив даних продуктів
+ */
+function getProductsFromArray($itemIds){
+    $strIds = implode($itemIds, ', ');
+    $sql = "SELECT * FROM products WHERE id in ({$strIds})";
+    
+    $rs = mysql_query($sql);
+    
+    return createSmartyRsArray($rs);
+}

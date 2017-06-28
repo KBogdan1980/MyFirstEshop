@@ -44,3 +44,16 @@ function removeFromCart(itemId){
         }
     });
 }
+
+/**
+ * Підрахунок вартості куплених товарів
+ * 
+ * @param integer itemId ID товару
+ */
+function conversionPrice(itemId){
+    var newCnt = $('#itemCnt_' + itemId).val();
+    var itemPrice = $('#itemPrice_' + itemId).attr('value');
+    var itemRealPrice = newCnt * itemPrice;
+    
+    $('#itemRealPrice_' + itemId).html(itemRealPrice);
+}

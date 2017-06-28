@@ -56,3 +56,23 @@ function addtocartAction(){
         }
         echo json_encode($resData);
     }
+    
+    /**
+     * Формування сторінки кошика
+     * 
+     * @link /cart/
+     */
+    function indexAction($smarty){
+        $itemIds = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+        
+        $rsCategories = getAllMainCatsWithChildren();
+        $rsProducts = getProductsFromArray($itemIds);
+        
+        $smarty->assign('pageTitle', 'Кошик');
+        $smarty->assign('rsCategories', $rsCategories);
+        $smarty->assign('rsProducts', $rsProducts);
+        
+        loadTemplate($smarty, 'header');
+        loadTemplate($smarty, 'cart');
+        loadTemplate($smarty, 'footer');
+    }
