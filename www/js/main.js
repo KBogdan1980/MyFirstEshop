@@ -57,3 +57,56 @@ function conversionPrice(itemId){
     
     $('#itemRealPrice_' + itemId).html(itemRealPrice);
 }
+
+/**
+ * Отримання даних з форми 
+ *
+ */
+function getData(obj_form){
+    var hData = {};
+    $('input, textarea, select', obj_form).each(function(){
+        if(this.name && this.name!=''){
+            hData[this.name] = this.value;
+            console.log('hData[' + this.name + '] = ' + hData[this.name]);
+        }
+    });
+    return hData;
+};
+
+
+/**
+ * Реєстрація нового користувача
+ * 
+ */
+function registerNewUser(){
+    var postData = getData('#registerBox');
+    
+    $.ajax({
+        type: 'POST',
+        async: false,
+        url: "/user/register/",
+        data: postData,
+        dataType: 'json',
+        success: function(data){
+            if (data['success']) {
+                alert('Реєстрація пройшла успішно');
+                
+                //>блок в лівому стовпці
+                $('#registerBox').hide();
+                
+                $('#userLink').attr('href', '/user/');
+                $('#userLink').html(data['userName']);
+                $('#userBox').show();
+                //<
+                
+                //> Сторінка замовлення
+                $('#loginBox').hide();
+                $('#btnSaveOrder').show();
+            } else {
+                alert(data['message']);
+            }
+        }
+        
+    });
+
+}

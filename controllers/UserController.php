@@ -44,5 +44,21 @@ function registerAction(){
         $pwdMD5 = md5($pwd1);
         
         $userData = registerNewUser($email, $pwdMD5, $name, $phone, $adress);
+        if ($userData['success']){
+            $resData['message'] = 'Користувач успішно зареєстрований';
+            $resData['success'] = 1;
+            
+            $userData = $userData[0];
+            $resData['userName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+            $resData['userEmail'] = $email;
+            
+            $_SESSION['user'] = $userData;
+            $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+        } else {
+            $resData['success'] = 0;
+            $resData['message'] = 'Помилка реєстрації';
+        }
+        
     }
+    echo json_encode($resData);
 }
