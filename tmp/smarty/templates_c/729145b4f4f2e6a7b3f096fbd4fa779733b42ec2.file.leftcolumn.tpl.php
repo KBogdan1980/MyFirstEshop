@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-29 13:58:33
+<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-07-04 15:25:15
          compiled from "..\views\default\leftcolumn.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4782593a9089a07745-21210814%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '729145b4f4f2e6a7b3f096fbd4fa779733b42ec2' => 
     array (
       0 => '..\\views\\default\\leftcolumn.tpl',
-      1 => 1498737508,
+      1 => 1499088530,
       2 => 'file',
     ),
   ),
@@ -54,6 +54,13 @@ $_smarty_tpl->tpl_vars['itemChild']->_loop = true;
                          
                      <?php } ?>   
             </div> 
+            
+            <div id="userBox" class="hideme">
+                <a href="#" id="userLink"></a><br>
+                <a href="/user/logout/" onclick="logout();">Вихід</a>
+            </div> 
+            
+            
             
             <div id="registerBox">
                 <div class="menuCaption showHidden" onclick="showRegisterBox()">Реєстрація</div>

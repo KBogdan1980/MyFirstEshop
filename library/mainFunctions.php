@@ -61,3 +61,14 @@ function d($value = null, $die = 1){
      
      return $smartyRs;
  }
+ 
+ /**
+  * Редірект
+  * 
+  * @param string $url адреса для перенаправлення
+  */
+ function redirect($url){
+     if (! $url) $url = '/';
+     header("Location: {$url}");
+     exit;
+ }
