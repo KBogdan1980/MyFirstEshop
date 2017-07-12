@@ -20,6 +20,12 @@
                 <a href="/user/logout/" onclick="logout();">Вихід</a>
             </div> 
             
+            <div id="loginBox">
+                <div class="menuCaption">Авторизація</div>
+                <input type="text" name="loginEmail" id="loginEmail" value=""><br>
+                <input type="password" name="loginPwd" id="loginPwd" value=""><br>
+                <input type="button" onclick="login();" value="Ввійти">
+            </div>
             
             
             <div id="registerBox">

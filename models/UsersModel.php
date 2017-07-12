@@ -94,3 +94,25 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
      
      return $rs;
  }
+ /**
+  * Авторизація користувача
+  * 
+  * @param string $email пошта (логін)
+  * @param string $pwd пароль
+  * @return array масив даних користувача
+  */
+ function loginUser($email, $pwd){
+    $email = htmlspecialchars(mysql_real_escape_string($email));
+    $pwd = md5($pwd);
+    
+    $sql = "SELECT * FROM users WHERE (`email` = '{$email}' and `pwd` = '{$pwd}') LIMIT 1";
+    $rs = mysql_query($sql);
+    
+    $rs = createSmartyRsArray($rs);
+    if (isset($rs[0])){
+        $rs['success'] = 1;
+    } else {
+        $rs['success'] = 0;
+    }
+    return $rs;
+ }
