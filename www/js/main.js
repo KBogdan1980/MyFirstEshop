@@ -140,3 +140,14 @@ function login(){
         }
     });
 }
+/**
+ * Показати або сховати форму реєстрації
+ *  
+ */
+function showRegisterBox(){
+    if( $("#registerBoxHidden").css('display') != 'block') {
+        $("#registerBoxHidden").show();
+    } else {
+        $("#registerBoxHidden").hide();
+    }
+}

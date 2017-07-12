@@ -15,6 +15,13 @@
                      {/foreach}   
             </div> 
             
+        {if isset($arUser)}
+                <div id="userBox">
+                    <a href="/user/" id="userLink">{$arUser['displayName']}</a><br>
+                    <a href="/user/logout/" onclick="logout();">Вихід</a>
+                </div>
+             {else}
+            
             <div id="userBox" class="hideme">
                 <a href="#" id="userLink"></a><br>
                 <a href="/user/logout/" onclick="logout();">Вихід</a>
@@ -41,7 +48,7 @@
                 </div>
                 
             </div>
-            
+         {/if}
             
             
             
