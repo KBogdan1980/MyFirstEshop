@@ -107,3 +107,79 @@ function loginAction(){
     }
     echo json_encode($resData); 
 }
+
+/**
+ * Формування головної сторінки користувача
+ * 
+ * @link /user/
+ * @param object $smarty шаблонізатор
+ */
+function indexAction($smarty){
+    
+    //якщо користувач не залогінений, то редірект на головну сторінку
+    if (! isset($_SESSION['user'])){
+        redirect('/');
+    }
+    
+    //отримуємо список категорій для меню
+    $rsCategories = getAllMainCatsWithChildren();
+    
+    $smarty->assign('pageTitle', 'Сторінка користувача');
+    $smarty->assign('rsCategories', $rsCategories);
+    
+    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'user');
+    loadTemplate($smarty, 'footer');
+}
+
+/**
+ * Оновлення даних користувача
+ * 
+ * @return json Description  результати виконання функції
+ */
+function updateAction(){
+    //> якщо користувач не залогінився, виходимо
+    if (!isset($_SESSION['user'])){
+        redirect('/');
+    }
+    //<
+    
+    //> ініцілізація змінних
+    $resData = array();
+    $phone = isset($_REQUEST['phone']) ? $_REQUEST['phone'] : null;
+    $adress = isset($_REQUEST['adress']) ? $_REQUEST['adress'] : null;
+    $name = isset($_REQUEST['name']) ? $_REQUEST['name'] : null;
+    $pwd1 = isset($_REQUEST['pwd1']) ? $_REQUEST['pwd1'] : null;
+    $pwd2 = isset($_REQUEST['pwd2']) ? $_REQUEST['pwd2'] : null;
+    $curPwd = isset($_REQUEST['curPwd']) ? $_REQUEST['curPwd'] : null; 
+    //<
+    
+    //перевірка правильності пароля (той який введений і той, під яким залогінились)
+    $curPwdMD5 = md5($curPwd);
+    if (! $curPwd || ($_SESSION['user']['pwd'] != $curPwdMD5 )){
+        $resData['success'] = 0;
+        $resData['message'] = 'Поточний пароль не вірний';
+        echo json_encode($resData);
+        return FALSE;
+    }
+    
+    //оновлення даних користувача
+    $res = updateUserData($resData, $phone, $adress, $pwd1, $pwd2, $curPwd);
+    if ($res){
+        $resData['success']= 1;
+        $resData['message']= 'Дані збережено';
+        $resData['userName'] = $name;
+        
+        $_SESSION['user']['name'] = $name;
+        $_SESSION['user']['phone'] = $phone;
+        $_SESSION['user']['adress'] = $adress;
+        $_SESSION['user']['pwd'] = $curPwdMD5;
+        $_SESSION['user']['displayName'] = $name ? $name : $_SESSION['user']['email'] ;
+        
+    } else {
+        $resData['success'] = 0;
+        $resData['message'] = 'Помилка збереження даних';
+    }
+    
+    echo json_encode($resData);
+}

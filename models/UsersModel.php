@@ -116,3 +116,44 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
     }
     return $rs;
  }
+ 
+ /**
+  * Зміна даних користувача
+  * 
+  * @param string $name  ім"я корисувача
+  * @param string $phone телефон
+  * @param string $adress адреса
+  * @param string $pwd1 новий пароль
+  * @param string $pwd2 повтор нового пароля
+  * @param string $curPwd поточний пароль
+  * @return boolean TRUE у випадку успіху
+  */
+ function updateUserData($name, $phone, $adress, $pwd1, $pwd2, $curPwd){
+     
+     $email = htmlspecialchars(mysql_real_escape_string($_SESSION['user']['email']));
+     $name = htmlspecialchars(mysql_real_escape_string($name));
+     $phone = htmlspecialchars(mysql_real_escape_string($phone));
+     $adress = htmlspecialchars(mysql_real_escape_string($adress));
+     $pwd1 = trim($pwd1);
+     $pwd2 = trim($pwd2);
+     
+     $newPwd = null;
+     if ($pwd && ($pwd == $pwd2) ){
+         $newPwd = md5($pwd);
+     }
+     
+     $sql = "UPDATE users SET";
+     
+     if ($newPwd){
+         $sql .= "`pwd` = '{$newPwd}', ";
+     }
+     
+     $sql .= " `name` = '{$name}', `phone` = '{$phone}', `adress` = '{$adress}'"
+     . " WHERE `email` = '{$email}' AND `pwd` = '{$curPwd}' LIMIT 1 ";
+     
+     $rs = mysql_query($sql);
+     
+     return $rs;
+     
+     
+ }
