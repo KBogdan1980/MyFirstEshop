@@ -31,7 +31,7 @@
         <td><input type="password" id="curPwd" value=""></td>
     </tr>
     <tr>
-        <td>&nbsp</td>
-        <td><input type="button" value="Зберегти зміни" onclick="updateUserData()";></td>
+        <td>&nbsp;</td>
+        <td><input type="button" value="Зберегти зміни" onclick="updateUserData();"></td>
     </tr>
 </table>

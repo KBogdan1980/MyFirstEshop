@@ -158,20 +158,20 @@ function showRegisterBox(){
  */
 function updateUserData(){
     console.log("js - updateUserData()");
-    var phone = $('#newPhone').val();
-    var adress = $('#newAdress').val();
-    var pwd1 = $('#newPwd1').val();
-    var pwd2 = $('#newPwd2').val();
-    var curPwd = $('#curPwd').val();
-    var name = $('#name').val();
+    var phone =     $('#newPhone').val();
+    var adress =    $('#newAdress').val();
+    var pwd1 =      $('#newPwd1').val();
+    var pwd2 =      $('#newPwd2').val();
+    var curPwd =    $('#curPwd').val();
+    var name =      $('#newName').val();
     
     var postData = {
-        phone: phone,
+        phone:  phone,
         adress: adress,
-        pwd1: pwd1,
-        pwd2: pwd2,
+        pwd1:   pwd1,
+        pwd2:   pwd2,
         curPwd: curPwd,
-        name: name};
+        name:   name};
     
     $.ajax({
         type: 'POST',
@@ -188,3 +188,4 @@ function updateUserData(){
         }
     });
 }
+

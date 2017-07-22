@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-07-14 20:35:46
+<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-07-21 16:59:03
          compiled from "..\views\default\user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1082959690e9ff052a6-32301316%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '380902dee4fbea043fedd98c40c723742ffa6aea' => 
     array (
       0 => '..\\views\\default\\user.tpl',
-      1 => 1500057340,
+      1 => 1500647397,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <td><input type="password" id="curPwd" value=""></td>
     </tr>
     <tr>
-        <td>&nbsp</td>
-        <td><input type="button" value="Зберегти зміни" onclick="updateUserData()";></td>
+        <td>&nbsp;</td>
+        <td><input type="button" value="Зберегти зміни" onclick="updateUserData();"></td>
     </tr>
 </table><?php }} ?>
