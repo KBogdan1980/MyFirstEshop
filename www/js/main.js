@@ -134,6 +134,9 @@ function login(){
                 $('#userLink').attr('href', '/user/');
                 $('#userLink').html(data['displayName']);
                 $('#userBox').show();
+                
+                $('#btnSaveOrder').show();
+                
             } else {
                 alert(data['message']);
             }

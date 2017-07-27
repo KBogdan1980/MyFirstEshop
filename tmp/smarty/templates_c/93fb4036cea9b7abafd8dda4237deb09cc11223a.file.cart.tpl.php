@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-06-28 16:21:08
+<?php /* Smarty version Smarty-3.1.22-dev, created on 2017-07-26 09:58:42
          compiled from "..\views\default\cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13758595399d3446868-84173174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '93fb4036cea9b7abafd8dda4237deb09cc11223a' => 
     array (
       0 => '..\\views\\default\\cart.tpl',
-      1 => 1498659664,
+      1 => 1501055741,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 В кошику пусто.
 
 <?php } else { ?>
+  <form action="/cart/order/" method="POST">
     <h2>Данні замовлення</h2>
     <table>
         <tr>
@@ -93,4 +94,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
         <?php } ?>
         
     </table>
+        
+        <input type="submit" value="Оформити заказ">      
+  </form>
 <?php }?><?php }} ?>

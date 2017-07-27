@@ -26,28 +26,29 @@
                 <a href="#" id="userLink"></a><br>
                 <a href="/user/logout/" onclick="logout();">Вихід</a>
             </div> 
-            
-            <div id="loginBox">
-                <div class="menuCaption">Авторизація</div>
-                <input type="text" name="loginEmail" id="loginEmail" value=""><br>
-                <input type="password" name="loginPwd" id="loginPwd" value=""><br>
-                <input type="button" onclick="login();" value="Ввійти">
-            </div>
-            
-            
-            <div id="registerBox">
-                <div class="menuCaption showHidden" onclick="showRegisterBox()">Реєстрація</div>
-                <div id="registerBoxHidden">
-                    email:<br>
-                    <input type="text" id="email" name="email" value=""><br>
-                    пароль:<br>
-                    <input type="password" id="pwd1" name="pwd1" value=""><br>
-                    повторти пароль:
-                    <input type="password" id="pwd2" name="pwd2" value=""><br>
-                    <input type="button" onclick="registerNewUser();" value="Зареєструватись"><br>
+            {if ! isset($hideLoginBox)}
+                <div id="loginBox">
+                    <div class="menuCaption">Авторизація</div>
+                    <input type="text" name="loginEmail" id="loginEmail" value=""><br>
+                    <input type="password" name="loginPwd" id="loginPwd" value=""><br>
+                    <input type="button" onclick="login();" value="Ввійти">
                 </div>
-                
-            </div>
+
+
+                <div id="registerBox">
+                    <div class="menuCaption showHidden" onclick="showRegisterBox()">Реєстрація</div>
+                    <div id="registerBoxHidden">
+                        email:<br>
+                        <input type="text" id="email" name="email" value=""><br>
+                        пароль:<br>
+                        <input type="password" id="pwd1" name="pwd1" value=""><br>
+                        повторти пароль:
+                        <input type="password" id="pwd2" name="pwd2" value=""><br>
+                        <input type="button" onclick="registerNewUser();" value="Зареєструватись"><br>
+                    </div>
+
+                </div>
+            {/if}
          {/if}
             
             
