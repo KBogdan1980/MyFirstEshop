@@ -135,6 +135,12 @@ function login(){
                 $('#userLink').html(data['displayName']);
                 $('#userBox').show();
                 
+                //>Заповнюємо поля на сторінці замовлення
+                $('#name').val(data['name']);
+                $('#phone').val(data['phone']);
+                $('#adress').val(data['adress']);
+                //<
+                
                 $('#btnSaveOrder').show();
                 
             } else {
