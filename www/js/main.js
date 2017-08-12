@@ -198,3 +198,24 @@ function updateUserData(){
     });
 }
 
+/**
+ * Збереження замовлення
+ */
+
+function saveOrder(){
+    var postData = getData('form');
+    $.ajax({
+       type: 'POST',
+       url: "/cart/saveorder/",
+       data: postData,
+       dataType: 'json',
+       success: function(data){
+           if(data['success']){
+               alert(data['message']);
+               document.location = '/';
+           } else {
+               alert(data['message']);
+           }
+       }
+    });
+}

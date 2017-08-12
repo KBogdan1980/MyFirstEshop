@@ -10,6 +10,8 @@
 //підключаємо моделі
 include_once '../models/CategoriesModel.php';
 include_once '../models/ProductsModel.php';
+include_once '../models/OrdersModel.php';
+include_once '../models/PurchaseModel.php';
 
 
 /**
@@ -145,3 +147,55 @@ function addtocartAction(){
         loadTemplate($smarty, 'order');
         loadTemplate($smarty, 'footer');
     }
+    
+    /**
+     * AJAX функція збереження замовлення
+     * 
+     * @param array $_SESSION['saleCart'] масив товарів, які купуються
+     * @return json інформація про результати виконання
+     */
+    function saveorderAction(){
+        //отримуємо масив товарів, що купуються
+        $cart = isset($_SESSION['saleCart']) ? $_SESSION['saleCart'] : null;
+        
+        //якщо кошик порожній, формуємо звіт з помилкою, віддаємо його в 
+        //форматі json і виходимо з функції
+        if (! $cart){
+            $resData['success'] = 0;
+            $resData['message'] = 'Немає товарів для показу';
+            echo json_encode($resData);
+            return;
+        }
+        
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $adress = $_POST['adress'];
+        
+        //створюємо нове замовлення і отримуємо його ID
+        $orderId = makeNewOrder($name, $phone, $adress);
+        
+        //якщо замовлення не створено, видаємо помилку і закінчуємо функцію
+        if(! $orderId){
+            $resData['success'] = 0;
+            $resData['message'] = "Помилка створення замовлення";
+            echo json_encode($resData);
+            return;
+        }
+        
+        //зберігаємо товари для створеного замовлення
+        $res = setPurchaseForOrder($orderId, $cart);
+        
+        //якщо успішно, то формуємо відповідь, видаляємо змінні кошика
+        if($res){
+            $resData['success'] = 1;
+            $resData['message'] = 'Ваше замовлення збережено';
+            unset($_SESSION['saleCart']);
+            unset($_SESSION['cart']);
+        } else {
+            $resData['success'] = 0;
+            $resData['message'] = 'Помилка внесення данних до замовлення № ' .$orderId;
+        }
+        
+        echo json_encode($resData);
+    }
+    
