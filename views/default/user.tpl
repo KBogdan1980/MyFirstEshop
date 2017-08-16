@@ -35,3 +35,31 @@
         <td><input type="button" value="Зберегти зміни" onclick="updateUserData();"></td>
     </tr>
 </table>
+    
+    <h2>Закази:</h2>
+{if ! $rsUserOrders}
+    Немає заказів
+    {else}
+        <table border="1" cellpadding="1" cellspacing="1">
+            <tr>
+                <th>№</th>
+                <th>Дія</th>
+                <th>ID заказа</th>
+                <th>Статус</th>
+                <th>Дата створення</th>
+                <th>Дата оплати</th>
+                <th>Додаткова інформація</th>
+            </tr>
+            {foreach $rsUserOrders as $item name=orders}
+                   <tr>
+                       <td>{$smarty.foreach.orders.iteration}</td>
+                       <td><a href="#" onclick="showProducts('{$item['id']}'); return false;">Показати номер заказу</td>
+                       <td>{$item['id']}</td>
+                       <td>{$item['status']}</td>
+                       <td>{$item['date_created']}</td>
+                       <td>{$item['date_payment']}&nbsp;</td>
+                       <td>{$item['comment']}</td>
+                   </tr>    
+             {/foreach}
+        </table>
+ {/if}

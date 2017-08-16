@@ -153,3 +153,15 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
      
      return $rs;
  }
+ 
+ /**
+  * Отримати дані заказу поточного користувача
+  * 
+  * @return array масив заказів з прив"язкою до продуктів
+  */
+ function getCurUserOrders(){
+     $userId = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 0;
+     $rs = getOrdersWithProductsByUser($userId);
+     
+     return $rs;
+ }

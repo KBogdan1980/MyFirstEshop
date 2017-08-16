@@ -10,6 +10,8 @@
  */
 include_once '../models/CategoriesModel.php';
 include_once '../models/UsersModel.php';
+include_once '../models/OrdersModel.php';
+include_once '../models/PurchaseModel.php';
 
 
 /**
@@ -123,8 +125,13 @@ function indexAction($smarty){
     //отримуємо список категорій для меню
     $rsCategories = getAllMainCatsWithChildren();
     
+    //отримуємо список заказів користувача
+    $rsUserOrders = getCurUserOrders();
+    //d($rsUserOrders);
+    
     $smarty->assign('pageTitle', 'Сторінка користувача');
     $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsUserOrders', $rsUserOrders);
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'user');
